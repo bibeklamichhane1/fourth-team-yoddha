@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - Results</title>
+    <!-- Link to Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="result-card">
+            <h1>Quiz Completed!</h1>
+            <div id="score"></div>
+            <div id="message"></div>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        // Example score (replace with dynamic score from your quiz logic)
+        let score = 8; 
+        let totalQuestions = 10; // Total number of questions in the quiz
+        
+        // Elements to display score and messages
+        const scoreElement = document.getElementById("score");
+        const messageElement = document.getElementById("message");
+        
+        // Display score
+        scoreElement.textContent = `Your Score: ${score} / ${totalQuestions}`;
+        
+        // Display personalized message based on score
+        if (score === totalQuestions) {
+            messageElement.textContent = "Outstanding! Perfect score!";
+        } else if (score >= totalQuestions * 0.8) {
+            messageElement.textContent = "Great job! You're a quiz master!";
+        } else if (score >= totalQuestions * 0.5) {
+            messageElement.textContent = "Good effort! Keep going!";
+        } else {
+            messageElement.textContent = "Don't give up! Try again!";
+        }
+        
+        // Restart quiz function (reloads the page or redirects)
+        function restartQuiz() {
+            window.location.reload(); // Or you can redirect to the quiz page
+        }
+    </script>
+</body>
+</html>
